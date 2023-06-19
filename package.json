@@ -1,15 +1,24 @@
 {
   "type": "module",
   "name": "templl",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Vlad Pronsky <v.pronsky@gmail.com>",
   "repository": "vladkens/templl",
   "description": "Project scaffolding from template repo",
   "license": "MIT",
   "keywords": [
+    "boilerplate",
+    "cli",
+    "command-line",
+    "generate",
+    "generator",
+    "git",
+    "module",
+    "npx",
+    "scaffold",
     "scaffolding",
     "template",
-    "git"
+    "yeoman"
   ],
   "files": [
     "dist"
@@ -45,7 +54,5 @@
       "default": "./dist/main.mjs"
     }
   },
-  "bin": {
-    "templl": "./dist/main.cjs"
-  }
+  "bin": "./dist/cli.js"
 }

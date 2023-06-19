@@ -1,6 +1,10 @@
 # templl
 
 <div align="center">
+  <img src="./logo.svg" alt="templl logo" height="250" />
+</div>
+
+<div align="center">
   <a href="https://npmjs.org/package/templl">
     <img src="https://badgen.net/npm/v/templl" alt="version" />
   </a>
@@ -18,7 +22,9 @@
   </a>
 </div>
 
+<div align="center">
 Project scaffolding from template repo
+</div>
 
 ## Usage
 
@@ -40,6 +46,12 @@ Or (other hostings):
 npx templl gitlab:user/repo
 npx templl git@gitlab.com:user/repo
 npx templl https://gitlab.com/user/repo
+```
+
+Or (global cli alias):
+
+```sh
+npm install -g templl
 ```
 
 ## See also

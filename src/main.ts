@@ -1,10 +1,8 @@
 import { exec as execSync } from "node:child_process"
 import { resolve } from "node:path"
-import { fileURLToPath } from "node:url"
 import { promisify } from "node:util"
 
 const exec = promisify(execSync)
-const isMain = import.meta.url && fileURLToPath(import.meta.url) === process.argv[1]
 
 export const getRepoUrl = (repo: string) => {
   if (repo.startsWith("git@")) return repo
@@ -18,7 +16,7 @@ export const getRepoUrl = (repo: string) => {
   throw new Error(`Invalid repo url: ${repo}`)
 }
 
-export const main = async () => {
+export const templl = async () => {
   const args = process.argv.slice(2)
   if (args.length !== 2) {
     console.error(`Usage: templl <src> <dst>`)
@@ -28,18 +26,17 @@ export const main = async () => {
   const [src, dst = "."] = args
   const repo = getRepoUrl(src)
 
-  await exec(`git clone --depth 1 ${repo} ${dst}`)
-  await exec(`rm -rf ${resolve(dst, ".git")}`)
-  await exec(`cd ${dst} && git init`)
-}
+  const cmds = [
+    `git clone --depth 1 ${repo} ${dst}`,
+    `rm -rf ${resolve(dst, ".git")}`,
+    `cd ${dst} && git init`,
+  ]
 
-const run = async () => {
-  try {
-    await main()
-  } catch (e) {
-    if (e instanceof Error) console.error(e.message)
-    process.exit(1)
+  for (const cmd of cmds) {
+    console.log(`> ${cmd}`)
+    const { stdout, stderr } = await exec(cmd)
+    console.log(`${stdout}${stderr}`)
   }
-}
 
-if (isMain) run()
+  console.log("Done! Now run:\n\n  cd ${dst}")
+}
