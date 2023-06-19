@@ -38,5 +38,5 @@ export const templl = async () => {
     console.log(`${stdout}${stderr}`)
   }
 
-  console.log("Done! Now run:\n\n  cd ${dst}")
+  console.log(`Done! Now run:\n\n  cd ${dst}`)
 }

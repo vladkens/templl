@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "templl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Vlad Pronsky <v.pronsky@gmail.com>",
   "repository": "vladkens/templl",
   "description": "Project scaffolding from template repo",
