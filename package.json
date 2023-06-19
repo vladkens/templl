@@ -19,7 +19,8 @@
     "test": "uvu -r tsm src '\\.test\\.ts$'",
     "test-cov": "c8 --include=src yarn test",
     "test-watch": "watchexec -c -e ts 'clear && yarn test'",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "ci": "yarn test-cov && yarn build"
   },
   "dependencies": {},
   "devDependencies": {
