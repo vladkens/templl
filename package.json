@@ -1,0 +1,50 @@
+{
+  "type": "module",
+  "name": "templl",
+  "version": "0.0.1",
+  "author": "Vlad Pronsky <v.pronsky@gmail.com>",
+  "repository": "vladkens/templl",
+  "description": "Project scaffolding from template repo",
+  "license": "MIT",
+  "keywords": [
+    "scaffolding",
+    "template",
+    "git"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && pkgroll --minify && ls -lah dist",
+    "test": "uvu -r tsm src '\\.test\\.ts$'",
+    "test-cov": "c8 --include=src yarn test",
+    "test-watch": "watchexec -c -e ts 'clear && yarn test'",
+    "format": "prettier --write ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "c8": "^7.14.0",
+    "pkgroll": "^1.10.0",
+    "prettier": "^2.8.8",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "ts-node": "^10.9.1",
+    "tsm": "^2.3.0",
+    "typescript": "^5.0.4",
+    "uvu": "^0.5.6"
+  },
+  "types": "./dist/main.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/main.d.cts",
+      "default": "./dist/main.cjs"
+    },
+    "import": {
+      "types": "./dist/main.d.mts",
+      "default": "./dist/main.mjs"
+    }
+  },
+  "bin": {
+    "templl": "./dist/main.cjs"
+  }
+}
